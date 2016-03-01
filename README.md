@@ -3,9 +3,9 @@ A tool for learning Python Commands
 
 
 ## Install Python3
-Install Python3 (not Python2.7) [here](http://getpython3.com/diveintopython3/installing-python.html) if you don't have it
-If you don't know if you have it:
+Install Python3 (not Python2.7) [here](http://getpython3.com/diveintopython3/installing-python.html) if you don't have it.
 
+If you don't know if you have it:
 First open command line:
 
 Macs:
