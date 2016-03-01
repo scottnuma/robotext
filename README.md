@@ -3,18 +3,21 @@ A tool for learning Python Commands
 
 
 ## Install Python3
-Install Python3 (not Python2.7) [here](http://getpython3.com/diveintopython3/installing-python.html) if you don't have it.
+Install Python 3 ( not Python 2.7 ) [here](http://getpython3.com/diveintopython3/installing-python.html) if you don't have it.
 
-If you don't know if you have it:
-First open command line:
+If you don't know if you have it, open up command line with the following:
 
 Macs:
+
 1. cmd+spacebar
 2. Type "Terminal"
 
 Windows:
+
 1. Open the windows search by hitting the Windows button
 2. Search for "Command Prompt" and open it
+
+Both
 
 3. In terminal type "python3" then hit return
 
