@@ -92,8 +92,12 @@ class Robot:
 	def turn_right(self):
 		self.__direction = (self.__direction + RIGHT) % 4
 
-	def toggle_verbose(self):
-		self.__verbose = not self.verbose
+	def set_verbose(self, value):
+		"""Controls the printing of the map
+		True: robot prints map after every move
+		False: no feedback after movement
+		"""
+		self.__verbose = value
 	
 	def move(self):
 		"""Moves the robot one space in the direction it's facing"""
@@ -105,13 +109,14 @@ class Robot:
 			self.__y += 1
 		elif self.__direction == EAST and self.__x + 1 < self.__world.get_width():
 			self.__x += 1
-		elif self.__direction == SOUTH and self.__y - 1 > 0:
+		elif self.__direction == SOUTH and self.__y - 1 >= 0:
 			self.__y -= 1
-		elif self.__direction == WEST and self.__x - 1 > 0:
+		elif self.__direction == WEST and self.__x - 1 >= 0:
 			self.__x -= 1
 		else:
 			print "Invalid Movement"
-		print self.__world
+		if self.__verbose:
+			print self.__world
 
 	def read(self):
 		"""Inspect what the robot is currently standing above"""
@@ -153,23 +158,52 @@ class Robot:
 	def get_direction(self):
 		return DIRECTION_STRINGS[self.__direction]
 
-if __name__ == "__main__" or __name__ == "__builtin__":
-	a = World()
-	a.set_point(3,3,'3')
-	a.set_point(4,5,'2')
-	a.set_point(6,1,'4')
-	a.set_point(8,5,'5')
+#Simplified world commands
+def world_height():
+	return numberWorld.get_height()
 
-	#Create the hayward world
-	b = World()
-	b.set_point(3,8,'H')
-	b.set_point(8,2,'A')
-	b.set_point(7,8,'Y')
-	b.set_point(1,3,'W')
-	b.set_point(8,6,'A')
-	b.set_point(3,2,'R')
-	b.set_point(6,9,'A')
-	b.set_point(3,5,'D')
+def world_width():
+	return numberWorld.get_width()
 
-	r = Robot()
-	a.set_robot(r)
+#Simplified robot commands
+def move():
+	r.move()
+
+def turn_left():
+	r.turn_left()
+
+def turn_right():
+	r.turn_right()
+
+def read():
+	return r.read()
+ 
+def grab():
+ 	r.grab()
+
+def release():
+ 	r.release()
+
+def get_inventory():
+ 	return r.get_inventory()
+
+def get_direction():
+ 	return r.get_direction()
+
+def get_x():
+ 	return r.get_x()
+
+def get_y():
+ 	return r.get_y()
+
+def set_verbose(value):
+ 	r.set_verbose(value)
+
+numberWorld = World()
+numberWorld.set_point(3,3,'3')
+numberWorld.set_point(4,5,'2')
+numberWorld.set_point(6,1,'4')
+numberWorld.set_point(8,5,'5')
+
+r = Robot()
+numberWorld.set_robot(r)
